@@ -1,0 +1,25 @@
+﻿@using MvcReportViewer;
+@{
+    ViewBag.Title = "ReportCertiArus";
+}
+
+<div class="ibox float-e-margins" style="margin-top:4px;margin-left:5px;">
+    <iframe src='https://www.suaporte.com.co:443/Web/faces/pages/comprobantes/individuales/individualIntranet.xhtml?identificacionEmpresa=N811033557&identificacionEmpleado=@ViewBag.Cedula&tokenExtranet=a137150701d79f0271a9dfb27cb6dc75&' width="1040" height="575" frameborder="0"</iframe>
+</div>
+
+}
+
+@{
+    var settings = new ControlSettings { EnableHyperlinks = true, AsyncRendering = true, KeepSessionAlive = true, ShowParameterPrompts = false, ShowToolBar = true, SizeToReportContent = false };
+}
+
+
+@Html.MvcReportViewer(
+    "/PortalEmpleados/CertificadoArus/NOMARUS",
+    new
+    {
+        Dcodemp = ViewBag.Cedula
+       
+    },
+    new { Height = "950px", Width = "100%", style = "border: none" }).ControlSettings(settings)
+

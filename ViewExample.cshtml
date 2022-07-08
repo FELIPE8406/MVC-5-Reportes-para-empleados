@@ -1,0 +1,13 @@
+﻿@using MvcReportViewer;
+@{
+    ViewBag.Title = "MvcReportViewer Example";
+}
+
+@{
+    var settings = new ControlSettings { EnableHyperlinks = true, AsyncRendering = true, KeepSessionAlive = true, ShowParameterPrompts = true, ShowToolBar = true, SizeToReportContent = false };
+}
+
+@Html.MvcReportViewer(
+    "/EmpresasInterno/MEE009",
+    new { token = "0x01000000FED64AB76063290C5885DF1B9DD288C58D0CBDB1AE704324061E06EB118A4E5DF0607D29B728BDA3EEC613C13411A39A022AC4C7F2819002EA2FAFB2B0314C14" },
+    new { Height = "900px", Width = "100%", style = "border: none" }).ControlSettings(settings);

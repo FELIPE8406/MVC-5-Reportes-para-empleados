@@ -1,0 +1,24 @@
+﻿@using MvcReportViewer;
+@{
+    ViewBag.Title = "ReportCertificadosLaborales";
+}
+
+@{
+    var settings = new ControlSettings { EnableHyperlinks = true, AsyncRendering = true, KeepSessionAlive = true, ShowParameterPrompts = false, ShowToolBar = true, SizeToReportContent = false };
+}
+
+
+@Html.MvcReportViewer(
+    "/PortalEmpleados/ComprobantedePagoNuevoDev/NOMU204ME",
+    new
+    {
+        FecIni = ViewBag.fechaComprobante,
+        FecFin = ViewBag.fechaComprobante,
+        IndFec = "1",
+        Bds = ViewBag.Bds,
+        CodConv = "%",
+        CodEmp = ViewBag.Cedula,
+        TipLiq = ViewBag.tipliq,
+        Origen = "H"
+    },
+    new { Height = "900px", Width = "100%", style = "border: none; background: white;" }).ControlSettings(settings)

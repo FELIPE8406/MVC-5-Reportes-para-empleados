@@ -1,0 +1,25 @@
+﻿@model PortalEmpleados.Models.ReportsViewModels
+@{
+    ViewBag.Title = "Reportes";
+}
+<br />
+<table class="table table-bordered table-hover">
+    <tr>
+        <th style="text-align:center">Reportes</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var rep in Model.reports)
+    {
+        <tr>
+            <td>
+                @rep.nombre
+            </td>
+
+            <td>
+                @Html.ActionLink("Ver Reporte", "executeReport", "Reports", new { id = @rep.codigo.Trim() }, new { target = "_blank", @class = "btn btn-info" })
+            </td>
+        </tr>
+    }
+
+</table>
